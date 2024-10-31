@@ -53,10 +53,7 @@
 
     </div>
 
-    
-
     <script>
-
         document.getElementById('close_danger')?.addEventListener('click', function () {
             document.getElementById('alert_danger_custom').style.display = 'none';
         });
@@ -71,7 +68,83 @@
             document.getElementById('alert_success_custom').style.display = 'none';
         });
     </script>
-
 </body>
-
 </html>
+
+<?php
+    $accounts = [
+        "admin" => [
+            "email1" => "admin",
+            "password1" => "Pass1234",
+            "email2" => "renmark",
+            "password2" => "Pogi1234"
+        ],
+        "content_manager" => [
+            "email3" => "pepito",
+            "password3" => "manaloto",
+            "email4" => "juan",
+            "password4" => "delacruz"
+        ],
+        "system_user" => [
+            "email5" => "juan",
+            "password5" => "delacruz",
+            "email6" => "pedro",
+            "password6" => "penduko",
+        ],
+    ];
+
+    $alert = ''; 
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        $options = $_POST['options'] ?? '';
+        $email = $_POST['floatingInput'] ?? '';
+        $password = $_POST['floatingPassword'] ?? '';
+
+        switch ($options) {
+            case 'admin':
+                if (
+                    ($accounts["admin"]["email1"] == $email && $accounts["admin"]["password1"] == $password) ||
+                    ($accounts["admin"]["email2"] == $email && $accounts["admin"]["password2"] == $password)
+                ) {
+                    $alert = 'success';
+                } else {
+                    $alert = 'danger';
+                }
+                break;
+
+            case 'Content Manager':
+                if (
+                    ($accounts["content_manager"]["email3"] == $email && $accounts["content_manager"]["password3"] == $password) ||
+                    ($accounts["content_manager"]["email4"] == $email && $accounts["content_manager"]["password4"] == $password)
+                ) {
+                    $alert = 'success';
+                    
+                } else {
+                    $alert = 'danger';
+                }
+                break;
+
+            case 'System User':
+                if (
+                    ($accounts["system_user"]["email5"] == $email && $accounts["system_user"]["password5"] == $password) ||
+                    ($accounts["system_user"]["email6"] == $email && $accounts["system_user"]["password6"] == $password)
+                ) {
+                    $alert = 'success';
+                } else {
+                    $alert = 'danger';
+                }
+                break;
+
+            default:
+                $alert = 'danger';
+                break;
+        }
+    }
+
+    if ($alert === 'success') {
+        echo '<script>document.getElementById("alert_success_custom").style.display = "block";</script>';
+    } elseif ($alert === 'danger') {
+        echo '<script>document.getElementById("alert_danger_custom").style.display = "block";</script>';
+    }
+    ?>
