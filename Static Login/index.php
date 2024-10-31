@@ -25,7 +25,7 @@
     <div class="round-container text-center" id="cntnr">
 
         <div class="mb-4">
-            <img src="blank.png" alt="Profile Picture" class="profile-pic">
+            <img src="images/blank.png" alt="Profile Picture" class="profile-pic">
         </div>
 
         
