@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    
+
     <h2>Vendo Machine</h2>
 
     <form method="post">
@@ -67,3 +67,60 @@
 
 </body>
 </html>
+
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['checkout']) && isset($_POST['product'])) {
+
+        $arrPrd = $_POST['product'];
+        $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : 0;
+        $size = isset($_POST['size']) ? $_POST['size'] : 'regular';
+
+        $productPrices = [
+            "Coke" => 15,
+            "Sprite" => 20,
+            "Royal" => 20,
+            "Pepsi" => 15,
+            "Mountain Dew" => 20
+        ];
+
+        $sizeAdjustments = [
+            "regular" => 0,
+            "upsize" => 5,
+            "jumbo" => 10
+        ];
+
+        $totalItems = 0;
+        $totalPrice = 0;
+
+        if ($quantity > 0) {
+
+            echo "<hr><b>Purchase Summary:</b><br>";
+
+            foreach ($arrPrd as $product) {
+                
+                $basePrice = $productPrices[$product];
+                $sizeAdjustment = $sizeAdjustments[$size];
+                $totalPricePerItem = ($basePrice + $sizeAdjustment) * $quantity;
+                
+                $totalItems += $quantity; 
+                $totalPrice += $totalPricePerItem; 
+                
+                echo "<ul><li><label>{$quantity} ";
+                echo ($quantity > 1) ? "pieces" : "piece";
+                echo " of {$size} {$product} amounting to ₱{$totalPricePerItem}</label></li></ul>";
+
+            }
+
+            echo "<hr><b>Total Items:</b> {$totalItems}<br>";
+            echo "<b>Total Price:</b> ₱{$totalPrice}";
+        } else {
+            echo "<hr>Quantity is zero. Please enter a valid quantity.";
+        }
+
+    } else {
+        echo "<hr>No Selected Product, Try Again.";
+    }
+}
+?>
