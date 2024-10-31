@@ -1,0 +1,27 @@
+#cntnr {
+  width: 350px;
+  margin: 60px auto;
+  border: 5px solid transparent;
+  border-radius: 15px;
+  padding: 30px;
+
+  position: relative;
+  box-shadow: 0 4px 15px rgba(1, 238, 255, 0.3);
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: scale-down;
+}
+
+#alert_danger_custom {
+  width: 500px;
+  margin: 0px auto;
+}
+
+#alert_success_custom {
+  width: 500px;
+  margin: 0px auto;
+}
