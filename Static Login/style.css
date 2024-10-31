@@ -1,0 +1,101 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Centering the container */
+.round-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #ffffff; /* White background */
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Light shadow */
+  text-align: center;
+  color: #333333; /* Dark text color inside the container */
+}
+
+/* Profile picture styling */
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+/* Alert box styling */
+.alert {
+  max-width: 400px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.alert .btn-close {
+  float: right;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.alert-danger {
+  background-color: #d9534f;
+  color: #ffffff;
+}
+
+.alert-success {
+  background-color: #5cb85c;
+  color: #ffffff;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-select,
+.form-control {
+  background-color: #f9f9f9;
+  color: #333333;
+  border: 1px solid #ccc;
+}
+
+.form-select:focus,
+.form-control:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+label {
+  color: #666666;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
